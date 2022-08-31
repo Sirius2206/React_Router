@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 function Menu() {
   const [prevActive, setActive] = useState(null);
   function toggleActive(e) {
@@ -10,21 +10,21 @@ function Menu() {
   }
   return (
     <nav className="menu">
-      <Link className="menu__item" to="/" onClick={toggleActive}>
+      <NavLink className={({isActive}) => "menu__item" + (isActive ? " menu__item-active" : "")} to="/" onClick={toggleActive}>
         Главная
-      </Link>
+      </NavLink>
 
-      <Link className="menu__item" to="/drift" onClick={toggleActive}>
+      <NavLink className={({isActive}) => "menu__item" + (isActive ? " menu__item-active" : "")} to="/drift" onClick={toggleActive}>
         Дрифт-такси
-      </Link>
+      </NavLink>
 
-      <Link className="menu__item" to="/timeattack" onClick={toggleActive}>
+      <NavLink className={({isActive}) => "menu__item" + (isActive ? " menu__item-active" : "")} to="/timeattack" onClick={toggleActive}>
         Time Attack
-      </Link>
+      </NavLink>
 
-      <Link className="menu__item" to="/forza" onClick={toggleActive}>
+      <NavLink className={({isActive}) => "menu__item" + (isActive ? " menu__item-active" : "")} to="/forza" onClick={toggleActive}>
         Forza Karting
-      </Link>
+      </NavLink>
     </nav>
   );
 }
